@@ -1,0 +1,13 @@
+.video-embed-container {
+  display:flex;
+  justify-content: center;
+  margin:20px 0;
+}
+
+.video-embed-frame {
+  border-radius: 16px;
+  box-shadow: 0 2px 18px #ccc;
+  width: 110vh;
+  height: 60vh;
+}
+

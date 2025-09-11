@@ -1,0 +1,148 @@
+.contactOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+}
+
+.contactCard {
+  background: #fff;
+  color: #333;
+  width: 95vw;
+  max-width: 1000px;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.21);
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+.contactHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 22px;
+  background: #fff;
+  padding: 22px 28px 14px 28px;
+  position: relative;
+  border-bottom: none;
+}
+
+.contactHeader-left {
+  display: flex; align-items: center; gap: 10px;
+}
+.contactLogo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  background: #23234e;
+  border-radius: 6px;
+  margin-right: 7px;
+}
+
+.arunodayaText {
+  font-size: 2.1rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  margin-left: 8px;
+  font-weight: 700;
+  background: none;
+  line-height: 1.1;
+}
+
+.contactHeader-main {
+  display: flex; flex-direction: column;
+  margin-left: 36px;
+}
+.reachUsText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #23234e;
+  letter-spacing: 2px;
+}
+.reachUsBar {
+  width: 55px;
+  height: 5px;
+  background: #ff9500;
+  border-radius: 3px;
+  margin-top: 7px;
+  margin-left: 3px;
+}
+
+.closeBtn {
+  position: absolute; right: 24px; top: 16px;
+  background: linear-gradient(135deg, #ffbb18 40%, #e7343e 90%);
+  border: none;
+  border-radius: 7px;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
+
+.contactBody {
+  padding: 36px 22px 28px 22px;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contactCol {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.05);
+  flex: 1 1 250px;
+  min-width: 260px;
+  max-width: 330px;
+  margin: 8px 6px;
+  padding: 36px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactCol-icon {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+  color: #ff6900;
+  background: #fff4ea;
+  border-radius: 50%;
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 12px rgba(238,157,63,0.07);
+}
+
+.contactCol-title {
+  font-size: 1.18rem;
+  color: #ff6900;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.contactCol-info {
+  font-size: 1.04rem;
+  color: #222;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .contactBody { flex-direction: column; align-items: stretch; gap: 24px; }
+  .contactCol { max-width: none; margin: 9px 0; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
