@@ -37,9 +37,9 @@
 //         <nav className="nav">
 //           <div className="logoSection">
 //             <div className="logo">
-//               <img src="/sevauk logo.jpg" alt="Sevauk Logo" />
+//               <img src="/Sevauk logo.jpg" alt="Sevauk logo" />
 //             </div>
-//             <div className="logo">
+//             <div className="logo">S
 //               <img src="/logo22.jpg" alt="Arunodaya Logo" />
 //             </div>
 //             <div classname="title-and-quote">
@@ -201,31 +201,41 @@ import React, { useRef, useState } from "react";
 import "./HomePage1.css";
 import Payment from "./Payment";
 import ImageSlider from "./ImageSlider";
-import ContactModal from "./ContactModal"; // import
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import ContactModal from "./ContactModal";
 
 function HomePage1() {
   const [showPayment, setShowPayment] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
-
   const aboutRef = useRef(null);
   const eventsRef = useRef(null);
 
-  // Donate handlers
-  const handleDonateClick = () => setShowPayment(true);
-  const handleClosePayment = () => setShowPayment(false);
+  const handleDonateClick = () => {
+    setShowPayment(true);
+  };
 
-  // Contact handlers
-  const handleContactClick = () => setShowContactModal(true);
-  const handleCloseContact = () => setShowContactModal(false);
+  const handleClose = () => {
+    setShowPayment(false);
+  };
 
-  const scrollToAbout = () =>
+  const scrollToAbout = () => {
     aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-  const scrollToImageSlider = () =>
+  const scrollToImageSlider = () => {
     eventsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleContactClick = () => {
+    setShowContactModal(true);
+  };
+
+  const handleContactClose = () => {
+    setShowContactModal(false);
+  };
 
   return (
-    <div>
+ <div>
       {/* Hero Section */}
       <div
         className="container"
@@ -237,7 +247,9 @@ function HomePage1() {
         <nav className="nav">
           <div className="logoSection">
             <div className="logo">
-              <img src="/Sevauklogo.jpg" alt="Sevauk Logo" />
+              <img src="/Sevauk logo.jpg" alt="Sevauk logo" />
+=======
+             <img alt="Sevauk Logo" src="/Sevauk logo.jpg">
             </div>
             <div className="logo">
               <img src="/logo22.jpg" alt="Arunodaya Logo" />
@@ -252,15 +264,9 @@ function HomePage1() {
 
           <div className="navLinks">
             <a href="#">Home</a>
-            <a className="linkBtn" onClick={scrollToAbout}>
-              About
-            </a>
-            <a className="linkBtn" onClick={scrollToImageSlider}>
-              Events
-            </a>
-            <a className="linkBtn" onClick={handleContactClick}>
-              Contact Us
-            </a>
+            <a className="linkBtn" onClick={scrollToAbout}>About</a>
+            <a className="linkBtn" onClick={scrollToImageSlider}>Events</a>
+            <a className="linkBtn" onClick={handleContactClick}>Contact Us</a>
           </div>
         </nav>
 
@@ -272,7 +278,7 @@ function HomePage1() {
             <br />
             <span>AND WHO BELIEVE IN THEIR POTENTIAL.</span>
           </div>
-          <button className="enrollBtn" onClick={handleDonateClick}>
+          <button className="loginBtn" onClick={handleDonateClick}>
             Donate Us
           </button>
         </div>
@@ -281,33 +287,96 @@ function HomePage1() {
           Donate Us
         </button>
 
-        {/* ✅ Payment Modal */}
+        {/* Payment Modal */}
         {showPayment && (
           <div className="paymentModal">
-            <div className="paymentOverlay" onClick={handleClosePayment}></div>
+            <div className="modalOverlay" onClick={handleClose}></div>
             <div className="slideUpModal">
               <div className="modalHeader">
                 <h2>Donate to Arunodaya</h2>
-                <button className="closeBtn" onClick={handleClosePayment}>
-                  ×
-                </button>
+                <button className="closeBtn" onClick={handleClose}>×</button>
               </div>
               <div className="modalBody">
-                <h3>
-                  "A Small Gift From You Creates A World Of Possibilities For
-                  Them."
-                </h3>
+                <h3>"A Small Gift From You Creates A World Of Possibilities For Them."</h3>
                 <Payment />
               </div>
             </div>
           </div>
         )}
 
-        {/* ✅ Contact Modal */}
-        {showContactModal && <ContactModal onClose={handleCloseContact} />}
+        {/* Contact Modal */}
+        {showContactModal && <ContactModal onClose={handleContactClose} />}
+      </div>
+
+      {/* Vision Section */}
+      <br />
+      <div className="vision-section">
+        <div className="school-heading">Vision</div>
+        <div className="school-text-center school-mb-40">
+          Our vision is rooted in providing a blend of home-based emotional care
+          and professionally guided special Training/ Education and therapy.
+        </div>
+      </div>
+
+      {/* Mission Section */}
+      <div className="school-mission-section">
+        <div className="school-mission-text">
+          <div className="school-subheading">Our Mission</div>
+          <div>
+            To provide a high-quality education that nurtures the holistic
+            development of students.
+            <br />
+            <br />
+            To help students develop into responsible and responsive global
+            citizens with strong moral values and an understanding of diverse
+            cultures.
+          </div>
+        </div>
+        <div className="school-diagram">
+          <img
+            src="/diagram.jpg"
+            alt="Mission Diagram"
+            className="school-diagram-image"
+          />
+        </div>
+      </div>
+
+      {/* About Section */}
+      <div ref={aboutRef} className="about-section-row">
+        <div className="about-us-left">
+          <h2 className="school-subheading"><center>About Us</center></h2>
+          <p className="school-about-text">
+            Arunodaya Special School began its journey in a small rented room with just 8–12 students, supported by three passionate faculty members and limited resources. What started as a humble initiative has today grown into a recognized institution for children with special needs in Gadag.
+
+            The school is currently training 42 children, while more than 120 parents seek counselling and guidance from the team. Over the years, Arunodaya has trained 183 children, with 29 successfully integrated into mainstream schools. Among them, one proud student went on to complete a postgraduate degree in Social Work — a milestone that reflects the school’s vision and impact.
+
+            Arunodaya strongly believes in holistic development. Children here are nurtured not only through academics but also through arts, physical education, medical support, and specialized therapies. The focus is on empowering each child to achieve independence, confidence, and dignity in life.
+
+            The school is equally committed to supporting families by providing counselling, awareness programs, and guidance to parents of special children. This two-way approach strengthens both the child’s and the family’s journey.
+
+            Over time, Arunodaya has built a strong reputation for its social service and inclusive education model. With the continued support of well-wishers, community members, and organizations like Seva Bharati and Seva UK, the school remains steadfast in its mission — to provide every child with special needs a nurturing, inclusive, and hopeful future.
+          </p>
+          <hr className="school-hr" />
+        </div>
+        <div className="about-us-collage">
+          <div className="collage-frame">
+            <img src="/image1.jpg" alt="School Activity" className="collage-img" />
+            <img src="/image2.jpg" alt="Classroom" className="collage-img" />
+          </div>
+          <div className="collage-frame">
+            <img src="/image3.jpg" alt="Outdoor Event" className="collage-img" />
+            <img src="/image4.jpg" alt="Celebration" className="collage-img" />
+          </div>
+        </div>
+      </div>
+
+      {/* Events Section */}
+      <div ref={eventsRef} className="events-section">
+        <h2 className="school-subheading">Our Events</h2>
+        <ImageSlider />
+        <hr className="school-hr" />
       </div>
     </div>
-    
   );
 }
 
